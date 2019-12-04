@@ -12,8 +12,8 @@
 record_list = physionetdb('mitdb');
 
 
-path_to_exes = 'path_to_WFDB_Toolbox\mcode\nativelibs\windows\bin';
-path_to_save_records = 'path_to_downloaded_database';
+path_to_exes = 'D:\MATLAB_ECG_TOOL\mcode\nativelibs\windows\bin';
+path_to_save_records = 'E:\03personal\DeepLearning\ECG-Heartbeat-seq2seq\data';
 
 % path_to_exes = 'C:\my_files\ECG_research\mcode\nativelibs\windows\bin';
 % path_to_save_records = 'C:\my_files\ECG_dataset\MIT-BIH\mitbihdb';
@@ -21,7 +21,7 @@ path_to_save_records = 'path_to_downloaded_database';
 mkdir(path_to_save_records);
 cd(path_to_save_records);
 tic
-for i=1:length(record_list)
+for i=24:length(record_list)
     
     command_annot = char(strcat(path_to_exes, filesep, 'rdann.exe -r mitdb/', record_list(i), ' -a atr -v >', record_list(i), 'm.txt'));
     system (command_annot);

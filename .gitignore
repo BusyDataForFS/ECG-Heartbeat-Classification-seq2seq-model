@@ -6,6 +6,14 @@ __pycache__/
 # C extensions
 *.so
 
+# data
+data/
+*.zip
+data preprocessing_Matlab/*.mat
+
+# IDE
+.idea/
+
 # Distribution / packaging
 .Python
 build/

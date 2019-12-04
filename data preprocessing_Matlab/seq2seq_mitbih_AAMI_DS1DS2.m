@@ -1,7 +1,7 @@
 clear all
 clc
 tic
-addr = '.\mitbihdb';
+addr = '..\data';
 Files=dir(strcat(addr,'\*.mat'));
 
 %% Translate PhysioNet classification results to AAMI and AAMI2 labling schemes
@@ -111,7 +111,7 @@ for j=1:2
             
             ind_seg = 1;
             % normalize
-            signal = normalize(signal);
+            signal = (mapminmax(signal)+1)/2;
             for ind=1:length(annot)
                 if ~ismember(annot(ind),annots_list)
                     continue;
@@ -138,7 +138,7 @@ for j=1:2
                 elseif(ismember(annot(ind),Q_g))
                     lebel = 'Q';
                 else
-                    throw("No label! :(")
+                    throw('No label! :(')
                     
                 end
                 if ind==1
